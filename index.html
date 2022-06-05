@@ -36,6 +36,7 @@
 import * as THREE from 'three';
 import {OrbitControls} from '/jsm/controls/OrbitControls.js';
 import {OBJLoader} from '/jsm/loaders/OBJLoader.js';
+import { VRButton } from '/jsm/webxr/VRButton.js';
 
 function main() {
   const canvas = document.querySelector('#c');
@@ -167,5 +168,12 @@ function main() {
 }
 
 main();
+document.body.appendChild( VRButton.createButton( renderer ) );
+renderer.xr.enabled = true;
+renderer.setAnimationLoop( function () {
+
+renderer.render( scene, camera );
+
+} );
 </script>
 </html>
